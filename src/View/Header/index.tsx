@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./index.css";
+import { chartList } from "../Charts/chartList";
 
 interface Props {
   activeChart: string;
@@ -7,12 +8,6 @@ interface Props {
 }
 
 const Header = ({ activeChart, setActiveChart }: Props) => {
-  const chartList = [
-    "Revenue drivers",
-    "O2O revenue breakdown",
-    "Marketing performance"
-  ];
-
   const renderNavItems = (items: string[]) => {
     return items.map((item, i) => {
       return (
