@@ -1,0 +1,16 @@
+.nav-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.nav-item {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.nav-item.active {
+  background: grey;
+  color: white;
+}

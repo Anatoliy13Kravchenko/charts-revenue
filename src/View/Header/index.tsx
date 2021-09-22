@@ -14,16 +14,20 @@ const Header = ({ activeChart, setActiveChart }: Props) => {
   ];
 
   const renderNavItems = (items: string[]) => {
-    return items.map((item) => {
+    return items.map((item, i) => {
       return (
-        <div className={`nav-item ${activeChart === item ? "active" : ""}`}>
+        <div
+          key={i}
+          onClick={() => setActiveChart(item)}
+          className={`nav-item${activeChart === item ? " active" : ""}`}
+        >
           {item}
         </div>
       );
     });
   };
 
-  return <div>{renderNavItems(chartList)}</div>;
+  return <div className={"nav-container"}>{renderNavItems(chartList)}</div>;
 };
 
 export default Header;
