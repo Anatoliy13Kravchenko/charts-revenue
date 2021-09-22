@@ -3,15 +3,29 @@ import { Bar } from "react-chartjs-2";
 import { genData, options } from "./config.ts";
 
 const Driver = () => {
-  const [data, setData] = useState(genData());
+  const [years, setYears] = useState(2);
+  const [data, setData] = useState(genData(years));
 
   useEffect(() => {
-    const interval = setInterval(() => setData(genData()), 5000);
+    setData(genData(years));
+  }, [years]);
 
-    return () => clearInterval(interval);
-  }, []);
-
-  return <Bar data={data} options={options} />;
+  return (
+    <div>
+      <label>
+        Set period by last:
+        <input
+          min={"1"}
+          width="20"
+          type="number"
+          value={years}
+          onChange={(event) => setYears(event.target.value)}
+        />
+        years
+      </label>
+      <Bar data={data} options={options} />
+    </div>
+  );
 };
 
 export default Driver;
