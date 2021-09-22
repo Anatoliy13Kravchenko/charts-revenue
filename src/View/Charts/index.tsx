@@ -1,6 +1,7 @@
 import * as React from "react";
 import O2O from "./O2O";
 import Driver from "./Driver";
+import Marketing from "./Marketing";
 
 interface Props {
   activeChart: string;
@@ -14,7 +15,7 @@ const Charts = ({ activeChart }: Props) => {
       return <Driver />;
     }
     if (chart === "Marketing performance") {
-      return <Driver />;
+      return <Marketing />;
     }
     return "";
   };
