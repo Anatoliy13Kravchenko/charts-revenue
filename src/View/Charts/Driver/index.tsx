@@ -23,7 +23,7 @@ const Driver = () => {
         />
         years
       </label>
-      <Bar data={data} options={options} />
+      <Bar key={"drivers"} data={data} options={options} type={"line"} />
     </div>
   );
 };

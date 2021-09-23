@@ -52,16 +52,12 @@ export const genData = (years) => {
       {
         label: "Gros revenue",
         data: period.map(() => rand()),
-        backgroundColor: period.map(() => getRandomRgb()),
-        borderColor: period.map(() => getRandomRgb()),
-        borderWidth: 1
+        backgroundColor: period.map(() => getRandomRgb())
       },
       {
         label: "Gros revenue(VAT excluded)",
         data: period.map(() => rand()),
-        backgroundColor: period.map(() => getRandomRgb()),
-        borderColor: period.map(() => getRandomRgb()),
-        borderWidth: 1
+        backgroundColor: period.map(() => getRandomRgb())
       }
     ]
   };
@@ -69,10 +65,32 @@ export const genData = (years) => {
 
 export const options = {
   scales: {
+    xAxes: [
+      {
+        gridLines: {
+          display: false
+        }
+      }
+    ],
     yAxes: [
       {
+        position: "right",
+        type: "time",
+        time: {
+          unit: "day",
+          displayFormats: {
+            day: "YYYY/MM/DD"
+          }
+        },
         ticks: {
-          beginAtZero: true
+          source: "labels",
+          fontSize: 13
+          // labels: Array(10).map(() => `${rand()} 0000$`),
+          // format: {
+          //   signDisplay: "$"
+          // },
+          // stepSize: 3,
+          // beginAtZero: true
         }
       }
     ]
